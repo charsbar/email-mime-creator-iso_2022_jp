@@ -12,7 +12,7 @@ BEGIN {
   }
 }
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub import {
   my $class = shift;
