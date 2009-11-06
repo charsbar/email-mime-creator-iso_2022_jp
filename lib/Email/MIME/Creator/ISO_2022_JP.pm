@@ -153,15 +153,15 @@ Email::MIME::Creator::ISO_2022_JP - Email::MIME mixin to create an iso-2022-jp m
 
 =head1 DESCRIPTION
 
-L<Email::MIME> is nice and handy. With C<headers_str> and C<body_str> (since 1.900), you don't need to encode everything by yourself. Just pass flagged (C<decode>d) utf-8 strings, and you'll get what you want. However, it only works when you send utf-8 encoded emails. In Japan, there're still some email clients that only understand iso-2022-jp (jis) encoded emails, and its popularity persuaded the L<Encode> maintainer (who's also Japanese) to include its support (since version 2.11, with C<Encode::MIME::Header::ISO_2022_JP> written by Makamaka). I want it to be supported by L<Email::MIME>, but it's too specific and nonsense for the rest of the world. That's why I write this mixin instead of asking to add extra bit to L<Email::MIME>.
+L<Email::MIME> is nice and handy. With C<header_str> and C<body_str> (since 1.900), you don't need to encode everything by yourself. Just pass flagged (C<decode>d) utf-8 strings, and you'll get what you want. However, it only works when you send utf-8 encoded emails. In Japan, there're still some email clients that only understand iso-2022-jp (jis) encoded emails, and its popularity persuaded the L<Encode> maintainer (who's also Japanese) to include its support (since version 2.11, with C<Encode::MIME::Header::ISO_2022_JP> written by Makamaka). I want it to be supported by L<Email::MIME>, but it's too specific and nonsense for the rest of the world. That's why I write this mixin instead of asking to add extra bit to L<Email::MIME>.
 
-As of this writing, this mixin doesn't care the tangled issues in the Japanese cellular phone industry (thus not C<::Japanese>). If you need finer control, just use C<headers>/C<body> and encoded string/octets, or send me a patch.
+As of this writing, this mixin doesn't care the tangled issues in the Japanese cellular phone industry (thus not C<::Japanese>). If you need finer control, just use C<header>/C<body> and encoded string/octets, or send me a patch.
 
 =head1 METHODS
 
 =head2 create_iso_2022_jp, header_str_set_iso_2022_jp
 
-Both work almost the same as L<Email::MIME>'s methods do, with one exception. If you pass utf-8 stings to C<headers_str> attribute or C<header_str_set> method, they'll be encoded by C<Encode::MIME::Header::ISO_2022_JP>, instead of C<Encode::MIME::Header>.
+Both work almost the same as L<Email::MIME>'s methods do, with one exception. If you pass utf-8 stings to C<header_str> attribute or C<header_str_set> method, they'll be encoded by C<Encode::MIME::Header::ISO_2022_JP>, instead of C<Encode::MIME::Header>.
 
 =head2 import, unimport
 
